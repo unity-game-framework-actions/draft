@@ -179,15 +179,20 @@ export function getOctokit(): any {
 
 export async function containsInBranch(owner: string, repo: string, branch: string, target: string): Promise<boolean> {
   const octokit = getOctokit()
-  const response = await octokit.paginate(`GET /repos/${owner}/${repo}/compare/${branch}...${target}`)
 
-  if (response.hasOwnProperty('status')) {
-    const status = response.status
+  try {
+    const response = await octokit.paginate(`GET /repos/${owner}/${repo}/compare/${branch}...${target}`)
 
-    return status === 'behind' || status === 'identical'
+    if (response.hasOwnProperty('status')) {
+      const status = response.status
+
+      return status === 'behind' || status === 'identical'
+    }
+
+    return false
+  } catch {
+    return false
   }
-
-  return false
 }
 
 export async function getMilestone(owner: string, repo: string, milestoneNumberOrTitle: string): Promise<any> {
@@ -273,7 +278,9 @@ export async function getReleasesByBranch(owner: string, repo: string, branch: s
   const result = []
 
   for (const release of releases) {
-    if (await containsInBranch(owner, repo, branch, release.tag_name)) {
+    const contains = await containsInBranch(owner, repo, branch, release.name)
+
+    if (contains) {
       result.push(release)
     }
   }
@@ -308,7 +315,9 @@ export async function getTagsByBranch(owner: string, repo: string, branch: strin
   const result = []
 
   for (const tag of tags) {
-    if (await containsInBranch(owner, repo, branch, tag.name)) {
+    const contains = await containsInBranch(owner, repo, branch, tag.name)
+
+    if (contains) {
       result.push(tag)
     }
   }
