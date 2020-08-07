@@ -278,7 +278,7 @@ export async function getReleasesByBranch(owner: string, repo: string, branch: s
   const result = []
 
   for (const release of releases) {
-    if (await containsInBranch(owner, repo, branch, release.name)) {
+    if (await containsInBranch(owner, repo, branch, release.tag_name)) {
       result.push(release)
     }
   }
