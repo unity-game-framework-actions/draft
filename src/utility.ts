@@ -66,6 +66,21 @@ export function parse(value: string, type: string): any {
   }
 }
 
+export async function getInput(): Promise<any> {
+  const input = core.getInput('input', {required: true})
+  const inputSource = core.getInput('inputSource', {required: true})
+  const inputType = core.getInput('inputType', {required: true})
+
+  switch (inputSource) {
+    case 'value':
+      return parse(input, inputType)
+    case 'file':
+      return await readData(input, inputType)
+    default:
+      throw `Invalid output type: '${inputSource}'.`
+  }
+}
+
 export async function setOutput(value: string) {
   const type = core.getInput('outputType', {required: true})
 
