@@ -11,7 +11,7 @@ inputs:
     required: true
   configPath:
     description: 'Path to config with generate settings.'
-    default: .github/releases-changelog.yml
+    default: .github/config.yml
     required: true
   configType:
     description: 'Type of config representation, possible values "yaml" or "json".'
