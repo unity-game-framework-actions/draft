@@ -281,6 +281,13 @@ export async function containsInBranch(owner: string, repo: string, branch: stri
   }
 }
 
+export async function getIssue(owner: string, repo: string, number: string): Promise<any> {
+  const octokit = getOctokit()
+  const response = await octokit.request(`GET /repos/${owner}/${repo}/issues/${number}`)
+
+  return response.date
+}
+
 export async function getMilestone(owner: string, repo: string, milestoneNumberOrTitle: string): Promise<any> {
   const octokit = getOctokit()
 
