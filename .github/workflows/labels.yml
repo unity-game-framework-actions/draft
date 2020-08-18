@@ -14,3 +14,5 @@ jobs:
         ref: ${{ github.sha }}
     - name: Sync
       uses: micnncim/action-label-syncer@v1
+      with:
+        token: ${{ github.token }}
