@@ -1,16 +1,7 @@
 
 name: Labels
 
-on:
-  workflow_dispatch:
-  push:
-    tags-ignore:
-    - '*'
-    paths:
-    - .github/labels.yml
-
-env:
-  GITHUB_TOKEN: ${{ github.token }}
+on: workflow_dispatch
 
 jobs:
   main:
