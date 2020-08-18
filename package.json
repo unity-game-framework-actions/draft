@@ -1,6 +1,7 @@
 {
   "name": "draft",
   "version": "0.0.0",
+  "displayName": "Draft",
   "description": "No description.",
   "main": "lib/main.js",
   "scripts": {
