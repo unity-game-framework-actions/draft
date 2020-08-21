@@ -155,6 +155,11 @@ notes:
     state: all
     labels: Security
 
+# List of labels to add or update.
+# Each element has some properties. (Read about labels: https://docs.github.com/en/rest/reference/issues#update-a-label)
+#   name: The name of the label.
+#   description: A short description of the label.
+#   color: The hexadecimal color code for the label, without the leading #.
 labels:
 - name: Archived
   description: An issue no longer relevant, but can be reopened.
