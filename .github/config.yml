@@ -50,6 +50,7 @@ readme:
     {package.displayName}
 
     ## Info
+    
     - **Version**: `{package.version}`
 
     ### Dependencies
@@ -59,6 +60,10 @@ readme:
     ### Description
 
     {package.description}
+
+    ### Changelog
+
+    - [Full changelog](changelog.md)
 
   # Dependency format of package dependencies.
   # Available values:
