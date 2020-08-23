@@ -176,6 +176,9 @@ labels:
 - name: Feature
   description: Mentioned in changelog under the Added section.
   color: c2e0c6
+- name: Fix
+  description: Mentioned in changelog under the Fixed section.
+  color: c5def5
 - name: Remove
   description: Mentioned in changelog under the Removed section.
   color: f9d0c4
