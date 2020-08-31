@@ -89,7 +89,7 @@ jobs:
         git add package.json
         git add changelog.md
         git add readme.md
-        git commit -m "Setup Release ${{ env.version }}"
+        git commit -m "Setup release ${{ env.version }}"
         git push
     - name: Create
       uses: actions/create-release@v1
